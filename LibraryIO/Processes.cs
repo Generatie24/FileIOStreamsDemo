@@ -11,6 +11,20 @@ namespace LibraryIO
     public class Processes
     {
 
+        public static void WriteToFile(List<Book> books, string path)
+        {
+            using (StreamWriter sw = new StreamWriter(path,true))
+            {
+                for (int index = 0; index < books.Count; index++)
+                {
+                    sw.WriteLine(books[index].Title);
+                    sw.WriteLine(books[index].Author);
+                    sw.WriteLine(books[index].Year);
+                    // sw.WriteLine(books[index]);
+                }
+            }
+
+        }
         public static void WriteToFile(List<Book> books, string path, bool overwrite)
         {
             using (StreamWriter sw = new StreamWriter(path, overwrite))

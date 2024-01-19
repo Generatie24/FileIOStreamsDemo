@@ -16,6 +16,7 @@ namespace WinUI
     public partial class Form1 : Form
     {
         string path = @"c:\temptest\books.txt";
+        List<Book> temp = new List<Book>();
         public Form1()
         {
             InitializeComponent();
@@ -52,7 +53,14 @@ namespace WinUI
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            lstBooks.SelectedItems.Remove(e.;
+            lstBooks.Items.RemoveAt(lstBooks.SelectedIndex);
+            foreach ( var item in lstBooks.Items )
+            {
+                temp.Add((Book)item);
+            }
+            
+            Processes.WriteToFile(temp,path,false);
+           
         }
     }
 }
