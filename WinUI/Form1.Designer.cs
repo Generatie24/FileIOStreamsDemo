@@ -38,6 +38,8 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblAuthor = new System.Windows.Forms.Label();
             this.lblYear = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lstBooks
@@ -47,6 +49,7 @@
             this.lstBooks.Name = "lstBooks";
             this.lstBooks.Size = new System.Drawing.Size(432, 134);
             this.lstBooks.TabIndex = 0;
+            this.lstBooks.SelectedIndexChanged += new System.EventHandler(this.lstBooks_SelectedIndexChanged);
             // 
             // txtTitle
             // 
@@ -84,7 +87,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(42, 159);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(100, 23);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add Book";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -131,11 +134,36 @@
             this.lblYear.TabIndex = 9;
             this.lblYear.Text = "Year";
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(592, 20);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(88, 25);
+            this.lblError.TabIndex = 10;
+            this.lblError.Text = "LblError";
+            this.lblError.Visible = false;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(374, 150);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(100, 23);
+            this.btnUpdate.TabIndex = 11;
+            this.btnUpdate.Text = "Update Book";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 450);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblYear);
             this.Controls.Add(this.lblAuthor);
             this.Controls.Add(this.lblTitle);
@@ -166,6 +194,8 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblAuthor;
         private System.Windows.Forms.Label lblYear;
+        private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
 

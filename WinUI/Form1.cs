@@ -10,12 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryIO.Models;
+using System.Configuration;
 
 namespace WinUI
 {
     public partial class Form1 : Form
     {
-        string path = @"c:\temptest\books.txt";
+        //string path = @"c:\temptest\books.txt";
+        string path = ConfigurationManager.AppSettings["file"];
         List<Book> temp = new List<Book>();
         public Form1()
         {
@@ -25,7 +27,6 @@ namespace WinUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
 
             ShowList();
         }
@@ -33,12 +34,30 @@ namespace WinUI
         private void ShowList()
         {
             lstBooks.Items.Clear();
-
-            var list = Processes.ReadFromFile(path);
-            foreach ( var item in list)
+            List<Book> list;
+            try
             {
-                lstBooks.Items.Add(item);   
+                list = Processes.ReadFromFile(path);
+                foreach (var item in list)
+                {
+                    lstBooks.Items.Add(item);
+                }
             }
+            catch (FileNotFoundException ex)
+            {
+                lblError.Visible = true;
+                lblError.Text = ex.Message;
+
+                //MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                lblError.Visible = true;
+                lblError.Text = ex.Message;
+                
+                //MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -61,6 +80,42 @@ namespace WinUI
             
             Processes.WriteToFile(temp,path,false);
            
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Book book = new Book();
+            book.Title = txtTitle.Text;
+            book.Author = txtAuthor.Text;
+            book.Year = int.Parse(txtYear.Text);
+
+            lstBooks.Items.RemoveAt(lstBooks.SelectedIndex);
+            
+            foreach (var item in lstBooks.Items)// without updated
+            {
+                temp.Add((Book)item); // list without updated, record already deleted
+            }
+            
+            Processes.WriteToFile(temp, path, false);
+            Processes.WriteToFileOneBook(book, path); // add to text file
+
+            var list = Processes.ReadFromFile(path);
+            foreach (var item in list)
+            {
+                lstBooks.Items.Add(item);
+            }
+
+        }
+
+        private void lstBooks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var book = (Book)lstBooks.SelectedItem;
+            if (book != null)
+            {
+                txtAuthor.Text = book.Author;
+                txtTitle.Text = book.Title;
+                txtYear.Text = book.Year.ToString();
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ namespace LibraryIO
                     sw.WriteLine(books[index].Title);
                     sw.WriteLine(books[index].Author);
                     sw.WriteLine(books[index].Year);
-                    // sw.WriteLine(books[index]);
+                    //sw.WriteLine(books[index]);
                 }
             }
 
@@ -34,7 +34,7 @@ namespace LibraryIO
                     sw.WriteLine(books[index].Title);
                     sw.WriteLine(books[index].Author);
                     sw.WriteLine(books[index].Year);
-                    // sw.WriteLine(books[index]);
+                    //sw.WriteLine(books[index]);
                 }
             }
 
