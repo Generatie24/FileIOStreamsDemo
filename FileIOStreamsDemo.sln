@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryIO", "LibraryIO\Libr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{74D12E7C-D70B-4897-9B1B-D3290CA502AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinUI", "WinUI\WinUI.csproj", "{23460BBF-EBCB-4BBA-939E-69E11134C9D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{74D12E7C-D70B-4897-9B1B-D3290CA502AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74D12E7C-D70B-4897-9B1B-D3290CA502AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74D12E7C-D70B-4897-9B1B-D3290CA502AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23460BBF-EBCB-4BBA-939E-69E11134C9D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23460BBF-EBCB-4BBA-939E-69E11134C9D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23460BBF-EBCB-4BBA-939E-69E11134C9D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23460BBF-EBCB-4BBA-939E-69E11134C9D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

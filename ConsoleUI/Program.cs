@@ -21,17 +21,17 @@ namespace ConsoleUI
             //Processes.WriteToFile(books, path);
             //**************************************************
 
-            var bk = Processes.ReadFromFile(path);
+            List<Book> bk = Processes.ReadFromFile(path);
             Console.WriteLine("Unsorted list");
-            foreach (Book book in bk)
+            foreach (var book in bk)
             {
                 Console.WriteLine(book);
             }
             Console.WriteLine();
             Console.WriteLine("List sorted by title");
 
-           // List<Book> sortedBooks = bk;
-            //sortedBooks.Sort();
+            List<Book> sortedBooks = bk;
+            sortedBooks.Sort();
 
             bk.Sort();
             foreach (Book book in bk)
@@ -43,8 +43,8 @@ namespace ConsoleUI
             //use lambda expression to sort by year
             Console.WriteLine("Used lambda to sort by year");
             Console.WriteLine();
-            List<Book> books = bk.OrderBy(dritan => dritan.Year).ToList();
-            foreach (Book book in books)
+            List<Book> books1 = bk.OrderBy(b => b.Year).ToList();
+            foreach (Book book in books1)
             {
                 Console.WriteLine(book);
             }
@@ -52,7 +52,7 @@ namespace ConsoleUI
             Console.WriteLine("Add new book");
 
             Book newBook = new Book();
-            newBook.Title = "Title New";
+            newBook.Title = "Title New new";
             newBook.Author = "Rik";
             newBook.Year = 2023;
             Processes.WriteToFileOneBook(newBook, path);

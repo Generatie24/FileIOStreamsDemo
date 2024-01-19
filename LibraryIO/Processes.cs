@@ -11,21 +11,20 @@ namespace LibraryIO
     public class Processes
     {
 
-        public static void WriteToFile(List<Book> books, string path)
+        public static void WriteToFile(List<Book> books, string path, bool overwrite)
         {
-            using (StreamWriter sw = new StreamWriter(path, true))
+            using (StreamWriter sw = new StreamWriter(path, overwrite))
             {
                 for (int index = 0; index < books.Count; index++)
                 {
                     sw.WriteLine(books[index].Title);
                     sw.WriteLine(books[index].Author);
                     sw.WriteLine(books[index].Year);
-                    //sw.WriteLine(books[index]);
+                    // sw.WriteLine(books[index]);
                 }
             }
 
         }
-
         public static List<Book> ReadFromFile(string path)
         {
             using (StreamReader sr = new StreamReader(path))
@@ -71,6 +70,8 @@ namespace LibraryIO
                 sw.WriteLine(b.Year = book.Year);
             }
         }
+
+       
 
     }
 }
