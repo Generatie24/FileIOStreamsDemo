@@ -139,7 +139,7 @@
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(592, 20);
+            this.lblError.Location = new System.Drawing.Point(109, 383);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(88, 25);
             this.lblError.TabIndex = 10;
@@ -161,7 +161,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1171, 450);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(600, 450);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblYear);

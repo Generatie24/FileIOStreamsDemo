@@ -27,7 +27,8 @@ namespace WinUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.AutoSize = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             ShowList();
         }
 
